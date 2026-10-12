@@ -7,7 +7,6 @@
 <meta name="theme-color" content="#8b0000">
 <title>MV.PROJECT — Правила Medium RP</title>
 <style>
-  /* СБРОС И БАЗОВЫЕ СТИЛИ */
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html { scroll-behavior: smooth; }
@@ -21,7 +20,7 @@
     overflow-x: hidden;
   }
 
-  /* ЗАГОЛОВОК И ПОИСК (ПРАВЫЙ ВЕРХНИЙ УГОЛ) */
+  /* ЗАГОЛОВОК И ПОИСК */
   .sticky-header {
     position: sticky;
     top: 0;
@@ -175,7 +174,7 @@
 
   .disclaimer strong { color: #ff5555; }
 
-  /* БЛОКИ КОДЕКСА */
+  /* БЛОК КОДЕКСА */
   .codex {
     background: linear-gradient(135deg, #1a1a1a, #1f1f1f);
     border: 2px solid #ff2e2e;
@@ -246,7 +245,7 @@
 
   li { margin-bottom: 7px; }
 
-  /* БЛОКИ ПРАВИЛ */
+  /* БЛОКИ */
   .rule, .warning, .info, .ok, .mtf-card, .protocol-card, .codex, .search-box, .disclaimer, .classic-protocol {
     height: auto !important;
     min-height: fit-content;
@@ -487,7 +486,7 @@
   .code-white { background: #d0d0d0; color: #000; }
   .code-purple { background: #5f1e5f; color: #e090ff; }
 
-  /* КЛАССИКА (ПРОТОКОЛ) */
+  /* КЛАССИКА */
   .classic-protocol {
     background: #1a1a1a;
     border: 1px solid #2a2a2a;
@@ -567,7 +566,6 @@
 </head>
 <body>
 
-<!-- ЗАГОЛОВОК И ПОИСК -->
 <header class="sticky-header">
   <div class="header-text">
     <h1>MV.PROJECT</h1>
@@ -581,10 +579,8 @@
   </div>
 </header>
 
-<!-- ОСНОВНОЙ КОНТЕНТ -->
 <main class="main-content">
 
-  <!-- НАВИГАЦИЯ (ВЕРХНЯЯ) -->
   <nav>
     <h3>Навигация по разделам</h3>
     <ul>
@@ -800,7 +796,6 @@
     <div class="rule"><strong>6.3.4.</strong> Использование багов карты для преимущества.</div>
   </section>
 
-  <!-- РАСШИРЕННЫЙ РАЗДЕЛ МОГ -->
   <section id="mtf">
     <h2>7. Правила за МОГ <span class="badge badge-mtf">MTF</span></h2>
 
@@ -825,7 +820,6 @@
       <tr><td>Командир</td><td>Полный контроль над МОГ</td></tr>
     </table>
 
-    <!-- БЛОК КЛАССИКА -->
     <div class="classic-protocol">
       <h3>7.2.1 | Классика</h3>
       <p>Протокол, объявляемый в случае массового нарушения условий контракта персоналом класса D.</p>
@@ -1347,7 +1341,6 @@
 </main>
 
 <script>
-  // Поиск по правилам
   document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('searchInput');
     const sections = document.querySelectorAll('section');
