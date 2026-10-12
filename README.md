@@ -173,10 +173,15 @@
 
   li { margin-bottom: 7px; }
 
-  /* БЛОКИ ПРАВИЛ — простая структура, ничего не может сломаться */
+  /* ИСПРАВЛЕНИЕ БЛОКОВ ПРАВИЛ */
   .rule {
     display: block;
     width: 100%;
+    height: auto !important;       /* Принудительно авто-высота */
+    min-height: fit-content;       /* Минимальная высота по контенту */
+    overflow: visible;             /* Ничего не обрезается */
+    word-wrap: break-word;         /* Перенос длинных слов */
+    overflow-wrap: break-word;
     background: #202020;
     border: 1px solid #2e2e2e;
     border-left: 5px solid #ff2e2e;
@@ -185,7 +190,7 @@
     border-radius: 6px;
     color: #ffffff;
     font-size: 0.95em;
-    line-height: 1.6;
+    line-height: 1.7;
     box-shadow: 0 3px 10px rgba(0,0,0,0.6);
     box-sizing: border-box;
     transition: background 0.2s, border-left-color 0.2s;
@@ -200,6 +205,7 @@
     color: #ff2e2e;
     font-weight: 700;
     margin-right: 6px;
+    display: inline;               /* Гарантирует, что strong не ломает поток */
   }
 
   .warning {
@@ -211,6 +217,9 @@
     border-radius: 8px;
     color: #f0d0d0;
     box-shadow: 0 2px 8px rgba(139,0,0,0.3);
+    height: auto !important;
+    overflow: visible;
+    word-wrap: break-word;
   }
 
   .warning strong { color: #ff5555; }
@@ -224,6 +233,9 @@
     border-radius: 8px;
     color: #d0e0f0;
     box-shadow: 0 2px 8px rgba(58,139,255,0.15);
+    height: auto !important;
+    overflow: visible;
+    word-wrap: break-word;
   }
 
   .info strong { color: #3a8bff; }
@@ -237,6 +249,9 @@
     border-radius: 8px;
     color: #d0f0d0;
     box-shadow: 0 2px 8px rgba(58,255,58,0.15);
+    height: auto !important;
+    overflow: visible;
+    word-wrap: break-word;
   }
 
   .ok strong { color: #3aff3a; }
@@ -425,7 +440,7 @@
   <div class="rule"><strong>3.2.1.</strong> «Я тебя обезоружил» без отыгрыша голосом и без согласия — PowerRP.</div>
   <div class="rule"><strong>3.2.2.</strong> «Я тебя убил» без фактического убийства в игре — PowerRP.</div>
   <div class="rule"><strong>3.2.3.</strong> Навязывание романтических, интимных или унизительных сцен — бан от 7 дней.</div>
-  <div class="info"><strong>СОВЕТ:</strong> Отыгрывайте действия <strong>голосом</strong> — например: <em>«Надеваю наручники на Д-класса перед собой»</em>, <em>«Достаю пистолет и направляю на учёного»</em>. Не нужно писать /me — просто озвучивайте, что делает ваш персонаж, и ждите реакции другого игрока.</div>
+  <div class="info"><strong>СОВЕТ:</strong> Отыгрывайте действия <strong>голосом</strong> — например: <em>«Надеваю наручники на Д-класса перед собой»</em>, <em>«Достаю пистолет и направляю на учёного»</em>. Просто озвучивайте, что делает ваш персонаж, и ждите реакции другого игрока.</div>
 </section>
 
 <section id="meta">
@@ -755,7 +770,7 @@
     <li>Запрещено использование звуковых панелей без RP-причины.</li>
     <li>Запрещено говорить OOC в IC-канале.</li>
     <li><strong>Разрешены разные звуки</strong>, если они подходят для RP: крики «Помогите!», когда за тобой бежит SCP, и т.д. — как в реальной жизни вёл бы себя персонаж.</li>
-    <li><strong>Отыгрыш действий голосом:</strong> вместо текстовых команд игрок озвучивает, что делает его персонаж. Примеры: «Надеваю наручники на Д-класса перед собой», «Достаю пистолет и направляю на учёного», «Обыскиваю тело». Это заменяет /me и делает RP живее.</li>
+    <li><strong>Отыгрыш действий голосом:</strong> игрок озвучивает, что делает его персонаж. Примеры: «Надеваю наручники на Д-класса перед собой», «Достаю пистолет и направляю на учёного», «Обыскиваю тело». Это делает RP живее и атмосфернее.</li>
   </ul>
   <div class="rule"><strong>14.1.</strong> Нарушение голосового чата = мут от 60 минут.</div>
 </section>
