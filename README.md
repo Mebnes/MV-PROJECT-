@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MV.PROJECT — официальные правила сервера Medium RP (SCP:SL). Версия 2.3">
+<meta name="description" content="MV.PROJECT — официальные правила сервера Medium RP (SCP:SL). Версия 2.4">
 <meta name="theme-color" content="#8b0000">
 <title>MV.PROJECT — Правила Medium RP</title>
 <style>
@@ -94,6 +94,48 @@
     font-size: 0.9em;
   }
 
+  /* ПОИСК */
+  .search-box {
+    margin-bottom: 30px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 15px 20px;
+  }
+
+  .search-box label {
+    display: block;
+    color: #ff2e2e;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .search-box input {
+    width: 100%;
+    padding: 12px 16px;
+    background: #0d0d0d;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .search-box input:focus {
+    border-color: #ff2e2e;
+    box-shadow: 0 0 10px rgba(255,46,46,0.3);
+  }
+
+  .search-box .hint {
+    color: #666;
+    font-size: 0.8em;
+    margin-top: 6px;
+  }
+
   nav {
     background: #1a1a1a;
     border: 1px solid #2a2a2a;
@@ -173,6 +215,15 @@
 
   li { margin-bottom: 7px; }
 
+  /* ИСПРАВЛЕНИЕ БЛОКОВ — текст не выходит за границы */
+  .rule, .warning, .info, .ok, .mtf-card, .code-card, .protocol-card, .codex, .search-box {
+    height: auto !important;
+    min-height: fit-content;
+    overflow: visible;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
   .rule {
     display: block;
     width: 100%;
@@ -187,6 +238,7 @@
     line-height: 1.7;
     box-shadow: 0 3px 10px rgba(0,0,0,0.6);
     box-sizing: border-box;
+    transition: background 0.2s, border-left-color 0.2s;
   }
 
   .rule:hover {
@@ -305,14 +357,67 @@
   .badge-sci { background: #5f1e5f; color: #fff; }
   .badge-staff { background: #ffb400; color: #000; }
 
-  .mtf-card {
+  /* РАСКРЫВАЮЩИЕСЯ БЛОКИ */
+  details.mtf-card,
+  details.code-card,
+  details.protocol-card {
     background: #141a24;
     border: 1px solid #1e3a5f;
     border-left: 5px solid #3a8bff;
     border-radius: 8px;
-    padding: 16px 20px;
+    padding: 0;
     margin: 12px 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    overflow: hidden;
+  }
+
+  details.mtf-card summary,
+  details.code-card summary,
+  details.protocol-card summary {
+    padding: 14px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #7fbfff;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #141a24;
+    border-bottom: 1px solid transparent;
+    transition: background 0.2s;
+  }
+
+  details.mtf-card summary::-webkit-details-marker,
+  details.code-card summary::-webkit-details-marker,
+  details.protocol-card summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details.mtf-card summary::after,
+  details.code-card summary::after,
+  details.protocol-card summary::after {
+    content: "▼";
+    font-size: 0.8em;
+    color: #3a8bff;
+    transition: transform 0.2s;
+  }
+
+  details[open].mtf-card summary::after,
+  details[open].code-card summary::after,
+  details[open].protocol-card summary::after {
+    transform: rotate(180deg);
+  }
+
+  details.mtf-card[open] summary,
+  details.code-card[open] summary,
+  details.protocol-card[open] summary {
+    border-bottom: 1px solid #1e3a5f;
+  }
+
+  details.mtf-card .content,
+  details.code-card .content,
+  details.protocol-card .content {
+    padding: 16px 20px;
   }
 
   .mtf-card h4 {
@@ -353,6 +458,7 @@
   .code-gray { background: #3a3a3a; color: #d0d0d0; }
   .code-blue { background: #1e3a5f; color: #90c0ff; }
   .code-white { background: #d0d0d0; color: #000; }
+  .code-purple { background: #5f1e5f; color: #e090ff; }
 
   @media (max-width: 700px) {
     .container { padding: 20px 15px; }
@@ -370,7 +476,7 @@
 <header>
   <h1>MV.PROJECT</h1>
   <p>MEDIUM ROLEPLAY — ОФИЦИАЛЬНЫЕ ПРАВИЛА СЕРВЕРА</p>
-  <span class="version">Версия 2.3 • Расширенный раздел МОГ</span>
+  <span class="version">Версия 2.4 • Расширенный раздел МОГ, коды и протоколы</span>
 </header>
 
 <div class="codex">
@@ -382,6 +488,13 @@
   <p class="quote">«Действуй логично и не мешай другим игрокам — так ты автоматически соблюдаешь 80% правил.»</p>
 </div>
 
+<!-- ПОИСК -->
+<div class="search-box">
+  <label for="searchInput">🔍 Поиск по правилам</label>
+  <input type="text" id="searchInput" placeholder="Введите слово или фразу..." autocomplete="off">
+  <div class="hint">Начните вводить текст — разделы, не содержащие совпадений, будут скрыты.</div>
+</div>
+
 <nav>
   <h3>Навигация по разделам</h3>
   <ul>
@@ -391,7 +504,7 @@
     <li><a href="#meta">4. MetaGaming и PowerGaming</a></li>
     <li><a href="#combat">5. Боевые правила</a></li>
     <li><a href="#scp">6. Правила за SCP</a></li>
-    <li><a href="#mtf">7. Правила за МОГ (расширено)</a></li>
+    <li><a href="#mtf">7. Правила за МОГ</a></li>
     <li><a href="#ci">8. Правила за ПХ</a></li>
     <li><a href="#dclass">9. Правила за Д-класс</a></li>
     <li><a href="#sci">10. Правила за учёных</a></li>
@@ -609,7 +722,7 @@
     <tr><td>Командир</td><td>Полный контроль над МОГ</td></tr>
   </table>
 
-  <h3>7.3. Коды тревоги</h3>
+  <h3>7.3. Коды тревоги C.A.S.S.I.E.</h3>
   <p>Коды объявляются через C.A.S.S.I.E. и определяют режим работы всего комплекса.</p>
   <table>
     <tr><th>Код</th><th>Название</th><th>Описание</th></tr>
@@ -621,206 +734,159 @@
     <tr><td><span class="code-badge code-black">⬛</span> Код Чёрный</td><td>Полная изоляция</td><td>Утечка класса Кетер. Комплекс изолирован. Внешние МОГ не входят.</td></tr>
     <tr><td><span class="code-badge code-blue">🔵</span> Код Синий</td><td>Аномалия в C.A.S.S.I.E.</td><td>Сбои в системе оповещения. Возможен взлом. Действовать по протоколу.</td></tr>
     <tr><td><span class="code-badge code-white">⚪</span> Код Белый</td><td>Учения</td><td>Тренировочная тревога. Реальные угрозы отсутствуют.</td></tr>
+    <tr><td><span class="code-badge code-purple">🟣</span> Код Пурпурный</td><td>Пространственная аномалия</td><td>Обнаружена пространственная аномалия. Активирован протокол изоляции.</td></tr>
+    <tr><td><span class="code-badge code-blue">💧</span> Код Чистый</td><td>Блокировка</td><td>Комплекс введён в режим блокировки «Чистый». Внеплановая проверка безопасности.</td></tr>
+    <tr><td><span class="code-badge code-black">🌀</span> Код Супер-Чистый</td><td>Неизвестность</td><td>Объявлен код «Супер-Чистый». Оно уже здесь. Не смотрите.</td></tr>
+    <tr><td><span class="code-badge code-red">🩸</span> Код Алый</td><td>Конец света класса DK</td><td>Объявлен КОД АЛЫЙ. Конец света класса «DK». Не покидайте крыло «ПАУК».</td></tr>
+    <tr><td><span class="code-badge code-black">❄️</span> Хладное серебро</td><td>Совершенно секретно</td><td>Протокол «Хладное серебро». Информация засекречена.</td></tr>
   </table>
 
   <h3>7.4. Оперативные группы и их специализация</h3>
-  <p>Каждая МОГ имеет свою специализацию. Невыполнение профильной задачи = нарушение.</p>
+  <p>Каждая МОГ имеет свою специализацию. Невыполнение профильной задачи = нарушение. <strong>Нажмите на группу, чтобы раскрыть подробности.</strong></p>
 
-  <div class="mtf-card">
-    <h4>Альфа-1 «Багряная десница»</h4>
-    <span class="role">Элитное подразделение ОВО (Отдел внутренней безопасности)</span>
-    <p>Задачи: нейтрализация аномальных угроз высшего приоритета, защита руководства Фонда, борьба с предателями.</p>
-    <p>Особенности: работают под прямым надзором ОВО, имеют право игнорировать приказы обычных командиров.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Альфа-1 «Багряная десница»</summary>
+    <div class="content">
+      <span class="role">Элитное подразделение ОВО (Отдел внутренней безопасности)</span>
+      <p>Задачи: нейтрализация аномальных угроз высшего приоритета, защита руководства Фонда, борьба с предателями.</p>
+      <p>Особенности: работают под прямым надзором ОВО, имеют право игнорировать приказы обычных командиров.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Альфа-2 «Посыльные»</h4>
-    <span class="role">Вспомогательное подразделение</span>
-    <p>Задачи: доставка приказов, сопровождение VIP-персон, связь между секторами.</p>
-    <p>Особенности: входят через гермоворота Браво, обязаны проверять документы у всех.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Альфа-2 «Посыльные»</summary>
+    <div class="content">
+      <span class="role">Вспомогательное подразделение</span>
+      <p>Задачи: доставка приказов, сопровождение VIP-персон, связь между секторами.</p>
+      <p>Особенности: входят через гермоворота Браво, обязаны проверять документы у всех.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Бета-7 «Шляпные болванчики»</h4>
-    <span class="role">Биологическая защита</span>
-    <p>Задачи: сдерживание биологических аномалий, дезинфекция, карантин.</p>
-    <p>Особенности: работают в защитных костюмах, не вступают в бой без необходимости.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Бета-7 «Шляпные болванчики»</summary>
+    <div class="content">
+      <span class="role">Биологическая защита</span>
+      <p>Задачи: сдерживание биологических аномалий, дезинфекция, карантин.</p>
+      <p>Особенности: работают в защитных костюмах, не вступают в бой без необходимости.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Дельта-14 «Зимняя Сказка»</h4>
-    <span class="role">Низкотемпературные аномалии</span>
-    <p>Задачи: сдерживание SCP, связанных со снегом, льдом и холодом (например, SCP-244).</p>
-    <p>Особенности: имеют тепловизоры, работают в условиях низких температур.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Эта-5 «Бомбардиры Егеря»</summary>
+    <div class="content">
+      <span class="role">Внешний периметр</span>
+      <p>Задачи: зачистка внешней территории, огневая поддержка, уничтожение угроз вне комплекса.</p>
+      <p>Особенности: работают за пределами Зоны, имеют тяжёлое вооружение.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Дзета-9 «Кротокрысы»</h4>
-    <span class="role">Подземные операции</span>
-    <p>Задачи: работа в туннелях, вентиляции, подземных уровнях. Поиск скрытых аномалий.</p>
-    <p>Особенности: при входе требуют, чтобы персонал оставался на местах и не пытался выбраться.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Эта-10 «Не вижу зла»</summary>
+    <div class="content">
+      <span class="role">Меметические и когнитивные угрозы</span>
+      <p>Задачи: сдерживание меметических SCP (SCP-268 и др.), защита разума персонала.</p>
+      <p>Особенности: работают в спецшлемах, избегают визуального контакта с аномалиями.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Эта-5 «Бомбардиры Егеря»</h4>
-    <span class="role">Внешний периметр</span>
-    <p>Задачи: зачистка внешней территории, огневая поддержка, уничтожение угроз вне комплекса.</p>
-    <p>Особенности: работают за пределами Зоны, имеют тяжёлое вооружение.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Эта-11 «Дикие твари»</summary>
+    <div class="content">
+      <span class="role">Звуковые аномалии</span>
+      <p>Задачи: сдерживание SCP, связанных со звуком, вибрацией, акустикой.</p>
+      <p>Особенности: используют звукоизоляцию, работают в тишине.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Эта-10 «Не вижу зла»</h4>
-    <span class="role">Меметические и когнитивные угрозы</span>
-    <p>Задачи: сдерживание меметических SCP (SCP-268 и др.), защита разума персонала.</p>
-    <p>Особенности: работают в спецшлемах, избегают визуального контакта с аномалиями.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Эпсилон-11 «Девятихвостая лиса»</summary>
+    <div class="content">
+      <span class="role">Внутренняя безопасность</span>
+      <p>Задачи: подавление массовых побегов SCP, эвакуация выживших, восстановление контроля над комплексом.</p>
+      <p>Особенности: элитное подразделение, подчиняется ОВО. Имеет расширенные полномочия.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Эта-11 «Дикие твари»</h4>
-    <span class="role">Звуковые аномалии</span>
-    <p>Задачи: сдерживание SCP, связанных со звуком, вибрацией, акустикой.</p>
-    <p>Особенности: используют звукоизоляцию, работают в тишине.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Кси-13 «Следуйте за нами»</summary>
+    <div class="content">
+      <span class="role">Быстрое реагирование</span>
+      <p>Задачи: первыми прибывают на место происшествия, зачищают сектор до подхода основных сил.</p>
+      <p>Особенности: малочисленны, но мобильны.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Эпсилон-9 «Пожиратели огня»</h4>
-    <span class="role">Температурные аномалии</span>
-    <p>Задачи: нейтрализация высоких температур, борьба с огнём и пирокинетическими SCP.</p>
-    <p>Особенности: имеют огнеупорную экипировку.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Лямбда-5 «Белые кролики»</summary>
+    <div class="content">
+      <span class="role">Разведка и тестирование</span>
+      <p>Задачи: тестирование аномалий, разведка неизвестных зон, сбор данных.</p>
+      <p>Особенности: работают с SCP, часто первыми вступают в контакт.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Эпсилон-11 «Девятихвостая лиса»</h4>
-    <span class="role">Внутренняя безопасность</span>
-    <p>Задачи: подавление массовых побегов SCP, эвакуация выживших, восстановление контроля над комплексом.</p>
-    <p>Особенности: элитное подразделение, подчиняется ОВО. Имеет расширенные полномочия.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Лима-5 «Травма Тим»</summary>
+    <div class="content">
+      <span class="role">Медицинская эвакуация</span>
+      <p>Задачи: эвакуация раненых, оказание первой помощи, сопровождение выживших.</p>
+      <p>Особенности: работают в тылу, не вступают в бой без необходимости.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Эпсилон-14 «Огоньку не найдётся?»</h4>
-    <span class="role">Пожарная безопасность</span>
-    <p>Задачи: борьба с возгораниями, спасение персонала из огня.</p>
-    <p>Особенности: работают совместно с инженерным отделом.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Ню-7 «Удар молота»</summary>
+    <div class="content">
+      <span class="role">Тяжёлая пехота</span>
+      <p>Задачи: зачистка внутренних секторов, уничтожение неавторизованного персонала, охрана периметра.</p>
+      <p>Особенности: имеют тяжёлое вооружение. Могут действовать по протоколу «зачистка всего живого».</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Ипсилон-1 «Рождённые из плоти и металла»</h4>
-    <span class="role">Поиск объектов класса Кетер</span>
-    <p>Задачи: изучение повреждённых учреждений Фонда, поиск опасных SCP класса Кетер.</p>
-    <p>Особенности: работают в разрушенных зонах, имеют инженеров в составе.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Ню-8 «Армия Унгуда»</summary>
+    <div class="content">
+      <span class="role">Зачистка секторов</span>
+      <p>Задачи: зачистка секторов от угроз, поддержка других МОГ.</p>
+      <p>Особенности: работают в условиях повышенной опасности.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Кси-13 «Следуйте за нами»</h4>
-    <span class="role">Быстрое реагирование</span>
-    <p>Задачи: первыми прибывают на место происшествия, зачищают сектор до подхода основных сил.</p>
-    <p>Особенности: малочисленны, но мобильны.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Омега-1 «Шуйца Закона»</summary>
+    <div class="content">
+      <span class="role">Правоприменение</span>
+      <p>Задачи: арест нарушителей, охрана руководства, соблюдение законов Фонда.</p>
+      <p>Особенности: весь персонал обязан следовать их приказам.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Лямбда-5 «Белые кролики»</h4>
-    <span class="role">Разведка и тестирование</span>
-    <p>Задачи: тестирование аномалий, разведка неизвестных зон, сбор данных.</p>
-    <p>Особенности: работают с SCP, часто первыми вступают в контакт.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Омега-16 «Новое командование»</summary>
+    <div class="content">
+      <span class="role">Кризисное управление</span>
+      <p>Задачи: берут на себя командование при потере связи с ЦОК, восстанавливают порядок.</p>
+      <p>Особенности: обладают правами временного командира.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Лямбда-12 «Санстанция»</h4>
-    <span class="role">Санитарный контроль</span>
-    <p>Задачи: сдерживание биологических аномалий, медицинская помощь, карантин.</p>
-    <p>Особенности: имеют медиков в составе.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Ро-9 «Техподдержка»</summary>
+    <div class="content">
+      <span class="role">Инженерные работы</span>
+      <p>Задачи: ремонт систем комплекса, восстановление гермоворот, наладка оборудования.</p>
+      <p>Особенности: работают совместно с инженерами Фонда.</p>
+    </div>
+  </details>
 
-  <div class="mtf-card">
-    <h4>Лима-5 «Травма Тим»</h4>
-    <span class="role">Медицинская эвакуация</span>
-    <p>Задачи: эвакуация раненых, оказание первой помощи, сопровождение выживших.</p>
-    <p>Особенности: работают в тылу, не вступают в бой без необходимости.</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Мю-13 «Охотники за привидениями»</h4>
-    <span class="role">Аномалии типа «призрак»</span>
-    <p>Задачи: сдерживание нематериальных и паранормальных SCP.</p>
-    <p>Особенности: имеют специальное оборудование для обнаружения невидимых угроз.</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Ню-7 «Удар молота»</h4>
-    <span class="role">Тяжёлая пехота</span>
-    <p>Задачи: зачистка внутренних секторов, уничтожение неавторизованного персонала, охрана периметра.</p>
-    <p>Особенности: имеют тяжёлое вооружение. Могут действовать по протоколу «зачистка всего живого».</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Ню-8 «Армия Унгуда»</h4>
-    <span class="role">Зачистка секторов</span>
-    <p>Задачи: зачистка секторов от угроз, поддержка других МОГ.</p>
-    <p>Особенности: работают в условиях повышенной опасности.</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Омега-1 «Шуйца Закона»</h4>
-    <span class="role">Правоприменение</span>
-    <p>Задачи: арест нарушителей, охрана руководства, соблюдение законов Фонда.</p>
-    <p>Особенности: весь персонал обязан следовать их приказам.</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Омега-16 «Новое командование»</h4>
-    <span class="role">Кризисное управление</span>
-    <p>Задачи: берут на себя командование при потере связи с ЦОК, восстанавливают порядок.</p>
-    <p>Особенности: обладают правами временного командира.</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Омикрон-2 «Ядерные кочевники»</h4>
-    <span class="role">Работа с системами самоуничтожения</span>
-    <p>Задачи: активация/деактивация ядерной боеголовки, работа в зонах с системой самоуничтожения.</p>
-    <p>Особенности: имеют доступ к системам детонации.</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Ро-9 «Техподдержка»</h4>
-    <span class="role">Инженерные работы</span>
-    <p>Задачи: ремонт систем комплекса, восстановление гермоворот, наладка оборудования.</p>
-    <p>Особенности: работают совместно с инженерами Фонда.</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Ро-36 «Лучший друг нарушителя»</h4>
-    <span class="role">Восстановление условий содержания</span>
-    <p>Задачи: поиск пропавших SCP, восстановление камер содержания.</p>
-    <p>Особенности: работают после массовых побегов.</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Сиерра-9</h4>
-    <span class="role">Нейтрализация неавторизованного персонала</span>
-    <p>Задачи: уничтожение врагов Фонда, защита комплекса от внешних угроз.</p>
-    <p>Особенности: работают в агрессивном режиме.</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Тау-5 «Самсара»</h4>
-    <span class="role">Особые операции</span>
-    <p>Задачи: операции повышенной сложности, работа с нестандартными аномалиями.</p>
-    <p>Особенности: малочисленны, но высококвалифицированы.</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Тета-0 «Анти-иерофанты»</h4>
-    <span class="role">Божественные сущности</span>
-    <p>Задачи: поиск и нейтрализация божественных и квази-божественных сущностей.</p>
-    <p>Особенности: работают с особо опасными SCP класса Кетер.</p>
-  </div>
-
-  <div class="mtf-card">
-    <h4>Фи-13 «Страшно, аж жуть»</h4>
-    <span class="role">Аномалии страха</span>
-    <p>Задачи: сдерживание SCP, связанных с чувством страха и ужаса.</p>
-    <p>Особенности: имеют психологическую подготовку.</p>
-  </div>
+  <details class="mtf-card">
+    <summary>Сиерра-9</summary>
+    <div class="content">
+      <span class="role">Нейтрализация неавторизованного персонала</span>
+      <p>Задачи: уничтожение врагов Фонда, защита комплекса от внешних угроз.</p>
+      <p>Особенности: работают в агрессивном режиме.</p>
+    </div>
+  </details>
 
   <h3>7.5. Протоколы и задачи МОГ</h3>
   <table>
@@ -844,6 +910,113 @@
   <div class="rule"><strong>7.6.8.</strong> Самовольная активация кода тревоги без причины.</div>
 
   <div class="warning"><strong>ВАЖНО:</strong> Командир МОГ несёт ответственность за весь состав. Если боец нарушает правила — командир получает выговор.</div>
+
+  <h3>7.7. Протоколы C.A.S.S.I.E.</h3>
+  <p>Ниже перечислены специальные протоколы, которые могут быть активированы через C.A.S.S.I.E. Нажмите, чтобы раскрыть подробности.</p>
+
+  <details class="protocol-card">
+    <summary>Протокол «Рука мертвеца»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> 🟩 Работы окончена</p>
+      <p><strong>Текст:</strong> Удаленный доступ получен. Режим ожидания… Команда получена. Начало сканирования… Сканирование завершено. Высылаю информацию… Информация отправлена. Режим ожидания… Команда получена. Протокол “Рука мертвеца” активирован. Алгоритм чрезвычайной детонации Омега боеголовки запущен. Подземная и наземная части комплекса будут подорваны через 90 секунд.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Демонтаж»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> 🟩 Работы окончена</p>
+      <p><strong>Текст:</strong> Запрос принят. Активирован протокол "Демонтаж". Сотрудникам МОГ разрешено ликвидировать персонал комплекса.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Лима»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> 🟩 Работы окончена</p>
+      <p><strong>Текст:</strong> Протокол "Лима" Активирован. SCP-914 и SCP-330 в Лёгкой зоне содержания будут ЗАБЛОКИРОВАНЫ.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Лезвие»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> 🟩 Работы окончена</p>
+      <p><strong>Текст:</strong> Протокол “Лезвие” активирован. Весь ПЕРСОНАЛ на уничтожение.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Тяжёлое решение»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> 🟩 Работы окончена</p>
+      <p><strong>Текст:</strong> Протокол “Тяжёлое решение” активирован. Врата Альфа и Браво открыты. Боеголовка детонирует через 90 секунд.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Вердикт»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> 🟩 Работы окончена</p>
+      <p><strong>Текст:</strong> Запрос принят. Активирован протокол "Вердикт". Весь Класс Д разрешено ликвидировать.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Железный занавес»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> 🟩 Работы окончена</p>
+      <p><strong>Текст:</strong> Персонал Безопасности комплекса был уничтожен. Активирован протокол "Железный занавес". Пропускной пункт в входную зону будет заблокирован до прибытия Отряда МОГ.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Уборка»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> 🟩🟦 Работы окончена</p>
+      <p><strong>Текст:</strong> Внимание всем оперативникам МОГ. По решению операторов Штаба-04, активируется протокол "Уборка" для ликвидации SCP-###. После ликвидации объекта, эвакуируйте MICRO-HID и продолжайте операцию.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Последняя надежда»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> 🟨 Работы нет текста</p>
+      <p><strong>Текст:</strong> [ВНИМАНИЕ]: Персоналу всех Учреждений и Зон Фонда SCP. Встреча персонала O5 заканчивается. O5-1 ... O5-13 - приняли активацию протокола Последняя надежда. Активация протокола Последняя надежда инициирована в времени: 25 секунд. Спасибо за работу с Фондом SCP. Прощайте, персонал. Обезопасить. Удержать. Сохранить.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Откат»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> ⬛ Работы нет текста</p>
+      <p><strong>Текст:</strong> ПРОТОКОЛ Откат.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Тайна»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> ⬛ Работы нет текста</p>
+      <p><strong>Текст:</strong> ПРОТОКОЛ Тайна.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Очищение»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> ⬛ Работы нет текста</p>
+      <p><strong>Текст:</strong> ПРОТОКОЛ Очищение.</p>
+    </div>
+  </details>
+
+  <details class="protocol-card">
+    <summary>Протокол «Катаракт»</summary>
+    <div class="content">
+      <p><strong>Статус:</strong> 🟩 Работы окончена</p>
+      <p><strong>Текст:</strong> Запрос принят. Активирован протокол "Катаракт". Уровень-1. Блокировка КПП легкой зоны содержания.</p>
+    </div>
+  </details>
 </section>
 
 <section id="ci">
@@ -1058,9 +1231,30 @@
 <footer>
   <p><strong>MV.PROJECT</strong> — Medium RP SCP:SL</p>
   <p>© 2026 MV.PROJECT. Все права защищены.</p>
-  <p>Версия правил 2.3</p>
+  <p>Версия правил 2.4</p>
 </footer>
 
 </div>
+
+<script>
+  // Поиск по правилам
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const sections = document.querySelectorAll('section');
+
+    searchInput.addEventListener('input', function () {
+      const query = this.value.toLowerCase().trim();
+
+      sections.forEach(function (section) {
+        if (!query) {
+          section.style.display = '';
+          return;
+        }
+        const text = section.textContent.toLowerCase();
+        section.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  });
+</script>
 </body>
 </html>
