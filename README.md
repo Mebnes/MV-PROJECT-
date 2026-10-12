@@ -168,25 +168,23 @@
 
   li { margin-bottom: 7px; }
 
-  /* ИСПРАВЛЕННЫЕ БЛОКИ ПРАВИЛ */
+  /* БЛОКИ ПРАВИЛ — номер сверху, текст снизу, ничего не вылезает */
   .rule {
     display: block;
     width: 100%;
     background: #202020;
     border: 1px solid #2e2e2e;
     border-left: 5px solid #ff2e2e;
-    padding: 16px 22px;
-    margin: 14px 0;
+    padding: 14px 20px;
+    margin: 12px 0;
     border-radius: 6px;
     color: #f0f0f0;
-    font-size: 1em;
-    line-height: 1.7;
+    font-size: 0.95em;
+    line-height: 1.6;
     box-shadow: 0 3px 10px rgba(0,0,0,0.6);
     box-sizing: border-box;
-    overflow: visible;
-    white-space: normal;
+    overflow: hidden;
     word-wrap: break-word;
-    min-height: auto;
   }
 
   .rule:hover {
@@ -194,10 +192,23 @@
     border-left-color: #ff5555;
   }
 
+  .rule .num {
+    display: block;
+    color: #ff2e2e;
+    font-weight: 700;
+    font-size: 1em;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .rule .txt {
+    display: block;
+    color: #e8e8e8;
+  }
+
   .rule strong {
     color: #ff2e2e;
     font-weight: 700;
-    display: inline;
   }
 
   .warning {
@@ -239,7 +250,6 @@
 
   .ok strong { color: #3aff3a; }
 
-  /* ИСПРАВЛЕННЫЕ ТАБЛИЦЫ */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -325,7 +335,7 @@
 <header>
   <h1>MV.PROJECT</h1>
   <p>MEDIUM ROLEPLAY — ОФИЦИАЛЬНЫЕ ПРАВИЛА СЕРВЕРА</p>
-  <span class="version">Версия 2.0 • Обновлено с учётом правок</span>
+  <span class="version">Версия 2.1 • Обновлено с учётом правок</span>
 </header>
 
 <div class="codex">
@@ -362,11 +372,11 @@
 <section id="general">
   <h2>1. Общие положения</h2>
   <p>Настоящие правила действуют на всех серверах проекта <strong>MV.PROJECT</strong> и в связанных с ним сообществах (Discord, VK, Telegram).</p>
-  <div class="rule"><strong>1.1.</strong> Незнание правил не освобождает от ответственности. Каждый игрок обязан ознакомиться с ними перед входом на сервер.</div>
-  <div class="rule"><strong>1.2.</strong> Администрация вправе изменять правила без предварительного уведомления. Актуальная версия всегда закреплена в Discord.</div>
-  <div class="rule"><strong>1.3.</strong> Решения администрации обязательны к исполнению. Оспаривание происходит только через апелляцию в Discord.</div>
-  <div class="rule"><strong>1.4.</strong> Регистрируясь на сервере, вы автоматически соглашаетесь с данными правилами.</div>
-  <div class="rule"><strong>1.5.</strong> Возрастное ограничение: <strong>13+</strong>. Игроки младше могут быть удалены без объяснения причин.</div>
+  <div class="rule"><span class="num">1.1.</span><span class="txt">Незнание правил не освобождает от ответственности. Каждый игрок обязан ознакомиться с ними перед входом на сервер.</span></div>
+  <div class="rule"><span class="num">1.2.</span><span class="txt">Администрация вправе изменять правила без предварительного уведомления. Актуальная версия всегда закреплена в Discord.</span></div>
+  <div class="rule"><span class="num">1.3.</span><span class="txt">Решения администрации обязательны к исполнению. Оспаривание происходит только через апелляцию в Discord.</span></div>
+  <div class="rule"><span class="num">1.4.</span><span class="txt">Регистрируясь на сервере, вы автоматически соглашаетесь с данными правилами.</span></div>
+  <div class="rule"><span class="num">1.5.</span><span class="txt">Возрастное ограничение: <strong>13+</strong>. Игроки младше могут быть удалены без объяснения причин.</span></div>
   <div class="warning"><strong>ВАЖНО:</strong> Незнание правил, «я новенький», «я не читал» — не являются оправданием. Наказание выносится по факту нарушения.</div>
 </section>
 
@@ -383,11 +393,11 @@
   </ul>
 
   <h3>2.2. Что запрещено</h3>
-  <div class="rule"><strong>2.2.1.</strong> Выход из роли (Break Character) без крайней необходимости.</div>
-  <div class="rule"><strong>2.2.2.</strong> Использование OOC-информации в IC-целях.</div>
-  <div class="rule"><strong>2.2.3.</strong> Намеренное разрушение атмосферы: крики в микрофон, музыка, спам.</div>
-  <div class="rule"><strong>2.2.4.</strong> Игра за роль, которая вам не выдана (самопровозглашение командира МОГ и т.д.).</div>
-  <div class="rule"><strong>2.2.5.</strong> Отказ от RP без веской причины.</div>
+  <div class="rule"><span class="num">2.2.1.</span><span class="txt">Выход из роли (Break Character) без крайней необходимости.</span></div>
+  <div class="rule"><span class="num">2.2.2.</span><span class="txt">Использование OOC-информации в IC-целях.</span></div>
+  <div class="rule"><span class="num">2.2.3.</span><span class="txt">Намеренное разрушение атмосферы: крики в микрофон, музыка, спам.</span></div>
+  <div class="rule"><span class="num">2.2.4.</span><span class="txt">Игра за роль, которая вам не выдана (самопровозглашение командира МОГ и т.д.).</span></div>
+  <div class="rule"><span class="num">2.2.5.</span><span class="txt">Отказ от RP без веской причины.</span></div>
 
   <h3>2.3. RP-имена</h3>
   <table>
@@ -412,14 +422,14 @@
     <li>Не атаковать, если у вас нет шанса выжить.</li>
     <li>При ранении — отыгрывать боль, хромать, просить помощи.</li>
   </ul>
-  <div class="rule"><strong>3.1.1.</strong> Нарушение FearRP = наказание от 60 минут до 1 дня мута.</div>
+  <div class="rule"><span class="num">3.1.1.</span><span class="txt">Нарушение FearRP = наказание от 60 минут до 1 дня мута.</span></div>
 
   <h3>3.2. PowerRP — навязывание действий</h3>
   <p>Запрещено навязывать другому игроку действия, которые он не может отменить.</p>
-  <div class="rule"><strong>3.2.1.</strong> «Я тебя обезоружил» без /me и без согласия — PowerRP.</div>
-  <div class="rule"><strong>3.2.2.</strong> «Я тебя убил» без фактического убийства в игре — PowerRP.</div>
-  <div class="rule"><strong>3.2.3.</strong> Навязывание романтических, интимных или унизительных сцен — бан от 7 дней.</div>
-  <div class="info"><strong>СОВЕТ:</strong> Используйте /me для описания действий. Например: <em>/me пытается обезоружить Д-класса</em> — и ждите реакции.</div>
+  <div class="rule"><span class="num">3.2.1.</span><span class="txt">«Я тебя обезоружил» без отыгрыша голосом и без согласия — PowerRP.</span></div>
+  <div class="rule"><span class="num">3.2.2.</span><span class="txt">«Я тебя убил» без фактического убийства в игре — PowerRP.</span></div>
+  <div class="rule"><span class="num">3.2.3.</span><span class="txt">Навязывание романтических, интимных или унизительных сцен — бан от 7 дней.</span></div>
+  <div class="info"><strong>СОВЕТ:</strong> Отыгрывайте действия <strong>голосом</strong> — например: <em>«Надеваю наручники на Д-класса перед собой»</em>, <em>«Достаю пистолет и направляю на учёного»</em>. Не нужно писать /me — просто озвучивайте, что делает ваш персонаж, и ждите реакции другого игрока.</div>
 </section>
 
 <section id="meta">
@@ -432,7 +442,7 @@
     <li>Если вы умерли — вы не знаете, что произошло после.</li>
     <li>Нельзя сообщать союзникам координаты врага, увиденные в спектаторе.</li>
   </ul>
-  <div class="rule"><strong>4.1.1.</strong> MetaGaming = мут 120 минут + предупреждение.</div>
+  <div class="rule"><span class="num">4.1.1.</span><span class="txt">MetaGaming = мут 120 минут + предупреждение.</span></div>
 
   <h3>4.2. PowerGaming</h3>
   <p>Использование игровых механик для получения преимущества, которое невозможно в реальной жизни.</p>
@@ -442,7 +452,7 @@
     <li>Использование багов карты.</li>
     <li>Мгновенное перезаряжание через эксплойт.</li>
   </ul>
-  <div class="rule"><strong>4.2.1.</strong> PowerGaming = кик, при повторе — бан 1 день.</div>
+  <div class="rule"><span class="num">4.2.1.</span><span class="txt">PowerGaming = кик, при повторе — бан 1 день.</span></div>
 </section>
 
 <section id="combat">
@@ -467,11 +477,11 @@
   </table>
 
   <h3>5.3. Запрещено в бою</h3>
-  <div class="rule"><strong>5.3.1.</strong> Стрельба по своим без причины (TK).</div>
-  <div class="rule"><strong>5.3.2.</strong> Использование читов, макросов, аимбота — перманентный бан.</div>
-  <div class="rule"><strong>5.3.3.</strong> Кемпинг на респавне врага.</div>
-  <div class="rule"><strong>5.3.4.</strong> Убийство сдавшихся без RP-причины.</div>
-  <div class="rule"><strong>5.3.5.</strong> Стрельба через стены и текстуры.</div>
+  <div class="rule"><span class="num">5.3.1.</span><span class="txt">Стрельба по своим без причины (TK).</span></div>
+  <div class="rule"><span class="num">5.3.2.</span><span class="txt">Использование читов, макросов, аимбота — перманентный бан.</span></div>
+  <div class="rule"><span class="num">5.3.3.</span><span class="txt">Кемпинг на респавне врага.</span></div>
+  <div class="rule"><span class="num">5.3.4.</span><span class="txt">Убийство сдавшихся без RP-причины.</span></div>
+  <div class="rule"><span class="num">5.3.5.</span><span class="txt">Стрельба через стены и текстуры.</span></div>
 </section>
 
 <section id="scp">
@@ -533,10 +543,10 @@
   </ul>
 
   <h3>6.3. Запрещено всем SCP</h3>
-  <div class="rule"><strong>6.3.1.</strong> TeamKill между SCP.</div>
-  <div class="rule"><strong>6.3.2.</strong> Кемпинг у выхода/респавна людей.</div>
-  <div class="rule"><strong>6.3.3.</strong> Игнорирование своей роли.</div>
-  <div class="rule"><strong>6.3.4.</strong> Использование багов карты для преимущества.</div>
+  <div class="rule"><span class="num">6.3.1.</span><span class="txt">TeamKill между SCP.</span></div>
+  <div class="rule"><span class="num">6.3.2.</span><span class="txt">Кемпинг у выхода/респавна людей.</span></div>
+  <div class="rule"><span class="num">6.3.3.</span><span class="txt">Игнорирование своей роли.</span></div>
+  <div class="rule"><span class="num">6.3.4.</span><span class="txt">Использование багов карты для преимущества.</span></div>
 </section>
 
 <section id="mtf">
@@ -564,11 +574,11 @@
   </table>
 
   <h3>7.3. Запрещено МОГ</h3>
-  <div class="rule"><strong>7.3.1.</strong> Убийство Д-класс без причины.</div>
-  <div class="rule"><strong>7.3.2.</strong> Отказ подчиняться командиру.</div>
-  <div class="rule"><strong>7.3.3.</strong> Оставление поста без приказа.</div>
-  <div class="rule"><strong>7.3.4.</strong> Помощь ПХ или SCP.</div>
-  <div class="rule"><strong>7.3.5.</strong> Использование служебного положения в личных целях.</div>
+  <div class="rule"><span class="num">7.3.1.</span><span class="txt">Убийство Д-класс без причины.</span></div>
+  <div class="rule"><span class="num">7.3.2.</span><span class="txt">Отказ подчиняться командиру.</span></div>
+  <div class="rule"><span class="num">7.3.3.</span><span class="txt">Оставление поста без приказа.</span></div>
+  <div class="rule"><span class="num">7.3.4.</span><span class="txt">Помощь ПХ или SCP.</span></div>
+  <div class="rule"><span class="num">7.3.5.</span><span class="txt">Использование служебного положения в личных целях.</span></div>
 </section>
 
 <section id="ci">
@@ -587,11 +597,11 @@
   </ul>
 
   <h3>8.2. Запрещено ПХ</h3>
-  <div class="rule"><strong>8.2.1.</strong> Убийство своих без причины.</div>
-  <div class="rule"><strong>8.2.2.</strong> Союз с МОГ против SCP.</div>
-  <div class="rule"><strong>8.2.3.</strong> Кемпинг на респавне Фонда.</div>
-  <div class="rule"><strong>8.2.4.</strong> Игнорирование приказов командира.</div>
-  <div class="rule"><strong>8.2.5.</strong> Убийство заложников без RP-причины.</div>
+  <div class="rule"><span class="num">8.2.1.</span><span class="txt">Убийство своих без причины.</span></div>
+  <div class="rule"><span class="num">8.2.2.</span><span class="txt">Союз с МОГ против SCP.</span></div>
+  <div class="rule"><span class="num">8.2.3.</span><span class="txt">Кемпинг на респавне Фонда.</span></div>
+  <div class="rule"><span class="num">8.2.4.</span><span class="txt">Игнорирование приказов командира.</span></div>
+  <div class="rule"><span class="num">8.2.5.</span><span class="txt">Убийство заложников без RP-причины.</span></div>
 </section>
 
 <section id="dclass">
@@ -609,11 +619,11 @@
   </ul>
 
   <h3>9.2. Запрещено Д-класс</h3>
-  <div class="rule"><strong>9.2.1.</strong> Бунт без RP-причины (просто так).</div>
-  <div class="rule"><strong>9.2.2.</strong> Убийство других Д-класс без причины.</div>
-  <div class="rule"><strong>9.2.3.</strong> Помощь SCP без RP-причины.</div>
-  <div class="rule"><strong>9.2.4.</strong> Использование читов и багов.</div>
-  <div class="rule"><strong>9.2.5.</strong> Нарушение FearRP при угрозе оружием.</div>
+  <div class="rule"><span class="num">9.2.1.</span><span class="txt">Бунт без RP-причины (просто так).</span></div>
+  <div class="rule"><span class="num">9.2.2.</span><span class="txt">Убийство других Д-класс без причины.</span></div>
+  <div class="rule"><span class="num">9.2.3.</span><span class="txt">Помощь SCP без RP-причины.</span></div>
+  <div class="rule"><span class="num">9.2.4.</span><span class="txt">Использование читов и багов.</span></div>
+  <div class="rule"><span class="num">9.2.5.</span><span class="txt">Нарушение FearRP при угрозе оружием.</span></div>
 
   <h3>9.3. Побег</h3>
   <ul>
@@ -639,11 +649,11 @@
   </ul>
 
   <h3>10.2. Запрещено учёным</h3>
-  <div class="rule"><strong>10.2.1.</strong> Помощь Д-класс без RP-причины.</div>
-  <div class="rule"><strong>10.2.2.</strong> Использование SCP в личных целях.</div>
-  <div class="rule"><strong>10.2.3.</strong> Оставление поста без приказа.</div>
-  <div class="rule"><strong>10.2.4.</strong> Нарушение протоколов containment.</div>
-  <div class="rule"><strong>10.2.5.</strong> Убийство Д-класс без приказа МОГ.</div>
+  <div class="rule"><span class="num">10.2.1.</span><span class="txt">Помощь Д-класс без RP-причины.</span></div>
+  <div class="rule"><span class="num">10.2.2.</span><span class="txt">Использование SCP в личных целях.</span></div>
+  <div class="rule"><span class="num">10.2.3.</span><span class="txt">Оставление поста без приказа.</span></div>
+  <div class="rule"><span class="num">10.2.4.</span><span class="txt">Нарушение протоколов containment.</span></div>
+  <div class="rule"><span class="num">10.2.5.</span><span class="txt">Убийство Д-класс без приказа МОГ.</span></div>
 </section>
 
 <section id="staff">
@@ -659,12 +669,12 @@
   </ul>
 
   <h3>11.2. Запрещено стаффу</h3>
-  <div class="rule"><strong>11.2.1.</strong> Абуз правами (noclip, godmode, teleport без причины).</div>
-  <div class="rule"><strong>11.2.2.</strong> Выдача наказаний без доказательств.</div>
-  <div class="rule"><strong>11.2.3.</strong> Снятие наказаний за услуги или по дружбе.</div>
-  <div class="rule"><strong>11.2.4.</strong> Участие в RP с использованием админ-прав.</div>
-  <div class="rule"><strong>11.2.5.</strong> Разглашение внутренней информации проекта.</div>
-  <div class="rule"><strong>11.2.6.</strong> Оскорбление игроков в любой форме.</div>
+  <div class="rule"><span class="num">11.2.1.</span><span class="txt">Абуз правами (noclip, godmode, teleport без причины).</span></div>
+  <div class="rule"><span class="num">11.2.2.</span><span class="txt">Выдача наказаний без доказательств.</span></div>
+  <div class="rule"><span class="num">11.2.3.</span><span class="txt">Снятие наказаний за услуги или по дружбе.</span></div>
+  <div class="rule"><span class="num">11.2.4.</span><span class="txt">Участие в RP с использованием админ-прав.</span></div>
+  <div class="rule"><span class="num">11.2.5.</span><span class="txt">Разглашение внутренней информации проекта.</span></div>
+  <div class="rule"><span class="num">11.2.6.</span><span class="txt">Оскорбление игроков в любой форме.</span></div>
 
   <h3>11.3. Наказания для стаффа</h3>
   <table>
@@ -749,8 +759,9 @@
     <li>Запрещено использование звуковых панелей без RP-причины.</li>
     <li>Запрещено говорить OOC в IC-канале.</li>
     <li><strong>Разрешены разные звуки</strong>, если они подходят для RP: крики «Помогите!», когда за тобой бежит SCP, и т.д. — как в реальной жизни вёл бы себя персонаж.</li>
+    <li><strong>Отыгрыш действий голосом:</strong> вместо текстовых команд игрок озвучивает, что делает его персонаж. Примеры: «Надеваю наручники на Д-класса перед собой», «Достаю пистолет и направляю на учёного», «Обыскиваю тело». Это заменяет /me и делает RP живее.</li>
   </ul>
-  <div class="rule"><strong>14.1.</strong> Нарушение голосового чата = мут от 60 минут.</div>
+  <div class="rule"><span class="num">14.1.</span><span class="txt">Нарушение голосового чата = мут от 60 минут.</span></div>
 </section>
 
 <section id="discord">
@@ -782,7 +793,7 @@
 <footer>
   <p><strong>MV.PROJECT</strong> — Medium RP SCP:SL</p>
   <p>© 2026 MV.PROJECT. Все права защищены.</p>
-  <p>Версия правил 2.0</p>
+  <p>Версия правил 2.1</p>
 </footer>
 
 </div>
