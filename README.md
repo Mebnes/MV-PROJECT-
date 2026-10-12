@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MV.PROJECT — официальные правила сервера Medium RP (SCP:SL). Версия 2.4">
+<meta name="description" content="MV.PROJECT — официальные правила сервера Medium RP (SCP:SL). Версия 2.5">
 <meta name="theme-color" content="#8b0000">
 <title>MV.PROJECT — Правила Medium RP</title>
 <style>
@@ -16,44 +16,110 @@
     background: #0d0d0d;
     color: #d8d8d8;
     line-height: 1.7;
-    padding: 20px;
+    display: flex;
+    min-height: 100vh;
   }
 
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: #151515;
-    border: 1px solid #2a2a2a;
-    border-radius: 12px;
+  /* ЛЕВАЯ ПАНЕЛЬ НАВИГАЦИИ */
+  .sidebar {
+    width: 320px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    background: #1a1a1a;
+    border-right: 1px solid #2a2a2a;
+    padding: 25px 20px;
+    flex-shrink: 0;
+    z-index: 100;
+  }
+
+  .sidebar h3 {
+    color: #ff2e2e;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 10px;
+  }
+
+  .sidebar ul {
+    list-style: none;
+  }
+
+  .sidebar li {
+    margin-bottom: 4px;
+  }
+
+  .sidebar a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 0.88em;
+    display: block;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border-left: 3px solid transparent;
+    transition: 0.2s;
+  }
+
+  .sidebar a:hover {
+    color: #ff2e2e;
+    background: #1f1f1f;
+    border-left: 3px solid #ff2e2e;
+  }
+
+  /* ОСНОВНОЙ КОНТЕНТ */
+  .main-content {
+    flex: 1;
     padding: 40px;
-    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: hidden;
   }
 
-  header {
-    text-align: center;
+  /* ЗАГОЛОВОК И ПОИСК */
+  .header-wrapper {
+    position: sticky;
+    top: 0;
+    background: #151515;
+    z-index: 90;
+    padding-bottom: 20px;
     border-bottom: 2px solid #8b0000;
-    padding-bottom: 25px;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
   }
 
-  header h1 {
-    font-size: 2.4em;
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .header-text {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .header-text h1 {
+    font-size: 2.2em;
     color: #ff2e2e;
     letter-spacing: 3px;
     text-transform: uppercase;
     text-shadow: 0 0 15px rgba(255,46,46,0.6);
   }
 
-  header p {
+  .header-text p {
     color: #888;
-    margin-top: 10px;
+    margin-top: 8px;
     font-size: 0.95em;
     letter-spacing: 1px;
   }
 
   .version {
     display: inline-block;
-    margin-top: 12px;
+    margin-top: 10px;
     padding: 4px 14px;
     background: #8b0000;
     color: #fff;
@@ -62,6 +128,65 @@
     letter-spacing: 1px;
   }
 
+  /* ПОИСК В ПРАВОМ ВЕРХНЕМ УГЛУ */
+  .search-box {
+    width: 300px;
+    flex-shrink: 0;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 12px 15px;
+  }
+
+  .search-box label {
+    display: block;
+    color: #ff2e2e;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .search-box input {
+    width: 100%;
+    padding: 10px 12px;
+    background: #0d0d0d;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 0.9em;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .search-box input:focus {
+    border-color: #ff2e2e;
+    box-shadow: 0 0 10px rgba(255,46,46,0.3);
+  }
+
+  .search-box .hint {
+    color: #666;
+    font-size: 0.75em;
+    margin-top: 6px;
+  }
+
+  /* ДИСКЛЕЙМЕР */
+  .disclaimer {
+    background: #2a1010;
+    border: 1px solid #8b0000;
+    border-left: 5px solid #ff2e2e;
+    padding: 16px 22px;
+    margin: 20px 0 30px;
+    border-radius: 8px;
+    color: #f0d0d0;
+    font-size: 0.95em;
+    box-shadow: 0 2px 8px rgba(139,0,0,0.3);
+  }
+
+  .disclaimer strong { color: #ff5555; }
+
+  /* ОСТАЛЬНЫЕ СТИЛИ */
   .codex {
     background: linear-gradient(135deg, #1a1a1a, #1f1f1f);
     border: 2px solid #ff2e2e;
@@ -94,92 +219,11 @@
     font-size: 0.9em;
   }
 
-  /* ПОИСК */
-  .search-box {
-    margin-bottom: 30px;
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    padding: 15px 20px;
-  }
-
-  .search-box label {
-    display: block;
-    color: #ff2e2e;
-    font-size: 0.9em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-    font-weight: 600;
-  }
-
-  .search-box input {
-    width: 100%;
-    padding: 12px 16px;
-    background: #0d0d0d;
-    border: 1px solid #333;
-    border-radius: 6px;
-    color: #e0e0e0;
-    font-size: 1em;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .search-box input:focus {
-    border-color: #ff2e2e;
-    box-shadow: 0 0 10px rgba(255,46,46,0.3);
-  }
-
-  .search-box .hint {
-    color: #666;
-    font-size: 0.8em;
-    margin-top: 6px;
-  }
-
-  nav {
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 35px;
-  }
-
-  nav h3 {
-    color: #ff2e2e;
-    margin-bottom: 12px;
-    font-size: 1em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  nav ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 8px;
-  }
-
-  nav a {
-    color: #b0b0b0;
-    text-decoration: none;
-    font-size: 0.9em;
-    transition: 0.2s;
-    display: block;
-    padding: 5px 10px;
-    border-left: 3px solid transparent;
-  }
-
-  nav a:hover {
-    color: #ff2e2e;
-    border-left: 3px solid #ff2e2e;
-    background: #1f1f1f;
-  }
-
   section {
     margin-bottom: 45px;
     padding-bottom: 25px;
     border-bottom: 1px solid #222;
-    scroll-margin-top: 20px;
+    scroll-margin-top: 100px;
   }
 
   section:last-child { border-bottom: none; }
@@ -209,14 +253,12 @@
 
   p { margin-bottom: 10px; }
 
-  ul, ol {
-    margin: 10px 0 15px 25px;
-  }
+  ul, ol { margin: 10px 0 15px 25px; }
 
   li { margin-bottom: 7px; }
 
-  /* ИСПРАВЛЕНИЕ БЛОКОВ — текст не выходит за границы */
-  .rule, .warning, .info, .ok, .mtf-card, .code-card, .protocol-card, .codex, .search-box {
+  /* БЛОКИ */
+  .rule, .warning, .info, .ok, .mtf-card, .protocol-card, .codex, .search-box, .disclaimer, .classic-protocol {
     height: auto !important;
     min-height: fit-content;
     overflow: visible;
@@ -359,7 +401,6 @@
 
   /* РАСКРЫВАЮЩИЕСЯ БЛОКИ */
   details.mtf-card,
-  details.code-card,
   details.protocol-card {
     background: #141a24;
     border: 1px solid #1e3a5f;
@@ -372,7 +413,6 @@
   }
 
   details.mtf-card summary,
-  details.code-card summary,
   details.protocol-card summary {
     padding: 14px 20px;
     cursor: pointer;
@@ -388,13 +428,11 @@
   }
 
   details.mtf-card summary::-webkit-details-marker,
-  details.code-card summary::-webkit-details-marker,
   details.protocol-card summary::-webkit-details-marker {
     display: none;
   }
 
   details.mtf-card summary::after,
-  details.code-card summary::after,
   details.protocol-card summary::after {
     content: "▼";
     font-size: 0.8em;
@@ -403,19 +441,16 @@
   }
 
   details[open].mtf-card summary::after,
-  details[open].code-card summary::after,
   details[open].protocol-card summary::after {
     transform: rotate(180deg);
   }
 
   details.mtf-card[open] summary,
-  details.code-card[open] summary,
   details.protocol-card[open] summary {
     border-bottom: 1px solid #1e3a5f;
   }
 
   details.mtf-card .content,
-  details.code-card .content,
   details.protocol-card .content {
     padding: 16px 20px;
   }
@@ -460,42 +495,103 @@
   .code-white { background: #d0d0d0; color: #000; }
   .code-purple { background: #5f1e5f; color: #e090ff; }
 
+  /* КЛАССИКА (ПРОТОКОЛ) */
+  .classic-protocol {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-top: 4px solid #ff2e2e;
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+
+  .classic-protocol h3 {
+    color: #ff2e2e;
+    font-size: 1.2em;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2a2a2a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .classic-protocol p {
+    color: #c0c0c0;
+    margin-bottom: 15px;
+    font-size: 0.95em;
+  }
+
+  .classic-protocol ul {
+    list-style: none;
+    margin-left: 0;
+  }
+
+  .classic-protocol > ul > li {
+    margin-bottom: 12px;
+  }
+
+  .classic-protocol > ul > li > strong {
+    color: #ffb400;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1em;
+  }
+
+  .classic-protocol ul ul {
+    margin-top: 6px;
+    margin-left: 20px;
+    list-style-type: disc;
+  }
+
+  .classic-protocol ul ul li {
+    color: #b0b0b0;
+    font-size: 0.92em;
+    margin-bottom: 6px;
+  }
+
+  .classic-protocol ul ul li::marker {
+    color: #ff2e2e;
+  }
+
+  /* АДАПТИВНОСТЬ */
+  @media (max-width: 1000px) {
+    .header-top { flex-direction: column; }
+    .search-box { width: 100%; }
+  }
+
+  @media (max-width: 900px) {
+    body { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      border-right: none;
+      border-bottom: 1px solid #2a2a2a;
+      padding: 15px;
+    }
+    .sidebar ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 5px;
+    }
+    .main-content { padding: 20px; }
+    .header-wrapper { position: relative; }
+  }
+
   @media (max-width: 700px) {
-    .container { padding: 20px 15px; }
-    header h1 { font-size: 1.6em; letter-spacing: 1px; }
+    .main-content { padding: 15px 10px; }
+    .header-text h1 { font-size: 1.6em; letter-spacing: 1px; }
     h2 { font-size: 1.2em; }
     h3 { font-size: 1em; }
     th, td { padding: 8px 10px; font-size: 0.85em; }
-    nav ul { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
-<div class="container">
 
-<header>
-  <h1>MV.PROJECT</h1>
-  <p>MEDIUM ROLEPLAY — ОФИЦИАЛЬНЫЕ ПРАВИЛА СЕРВЕРА</p>
-  <span class="version">Версия 2.4 • Расширенный раздел МОГ, коды и протоколы</span>
-</header>
-
-<div class="codex">
-  <h2>Кодекс игрока</h2>
-  <p>Добро пожаловать в <strong>руководство сервера MV.PROJECT</strong>, содержащее основные правила Medium RP, а также необходимые рекомендации для начала игры.</p>
-  <p>Присоединяясь к серверу, вы соглашаетесь с данным руководством.</p>
-  <p>Незначительно отклоняться от правил допустимо, если это не вредит другим игрокам и RP.</p>
-  <p>Не мешайте работе состава проекта, а также игровому опыту других игроков.</p>
-  <p class="quote">«Действуй логично и не мешай другим игрокам — так ты автоматически соблюдаешь 80% правил.»</p>
-</div>
-
-<!-- ПОИСК -->
-<div class="search-box">
-  <label for="searchInput">🔍 Поиск по правилам</label>
-  <input type="text" id="searchInput" placeholder="Введите слово или фразу..." autocomplete="off">
-  <div class="hint">Начните вводить текст — разделы, не содержащие совпадений, будут скрыты.</div>
-</div>
-
-<nav>
+<!-- ЛЕВАЯ ПАНЕЛЬ НАВИГАЦИИ -->
+<aside class="sidebar">
   <h3>Навигация по разделам</h3>
   <ul>
     <li><a href="#general">1. Общие положения</a></li>
@@ -515,7 +611,38 @@
     <li><a href="#discord">15. Discord-правила</a></li>
     <li><a href="#final">16. Заключительные положения</a></li>
   </ul>
-</nav>
+</aside>
+
+<!-- ОСНОВНОЙ КОНТЕНТ -->
+<main class="main-content">
+
+  <div class="header-wrapper">
+    <div class="header-top">
+      <div class="header-text">
+        <h1>MV.PROJECT</h1>
+        <p>MEDIUM ROLEPLAY — ОФИЦИАЛЬНЫЕ ПРАВИЛА СЕРВЕРА • Комплекс Зона 02</p>
+        <span class="version">Версия 2.5 • Расширенный раздел МОГ, коды и протоколы</span>
+      </div>
+      <div class="search-box">
+        <label for="searchInput">🔍 Поиск по правилам</label>
+        <input type="text" id="searchInput" placeholder="Введите слово или фразу..." autocomplete="off">
+        <div class="hint">Начните вводить текст — разделы, не содержащие совпадений, будут скрыты.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <strong>ВНИМАНИЕ:</strong> Проект MV.PROJECT имеет собственный лор и не относится к официальному SCP Foundation. Все события, объекты и персонажи являются вымышленными и созданы исключительно для игровых целей в рамках ролевого сервера.
+  </div>
+
+  <div class="codex">
+    <h2>Кодекс игрока</h2>
+    <p>Добро пожаловать в <strong>руководство сервера MV.PROJECT</strong>, содержащее основные правила Medium RP, а также необходимые рекомендации для начала игры.</p>
+    <p>Присоединяясь к серверу, вы соглашаетесь с данным руководством.</p>
+    <p>Незначительно отклоняться от правил допустимо, если это не вредит другим игрокам и RP.</p>
+    <p>Не мешайте работе состава проекта, а также игровому опыту других игроков.</p>
+    <p class="quote">«Действуй логично и не мешай другим игрокам — так ты автоматически соблюдаешь 80% правил.»</p>
+  </div>
 
 <section id="general">
   <h2>1. Общие положения</h2>
@@ -722,6 +849,30 @@
     <tr><td>Командир</td><td>Полный контроль над МОГ</td></tr>
   </table>
 
+  <!-- НОВЫЙ БЛОК КЛАССИКА -->
+  <div class="classic-protocol">
+    <h3>7.2.1 | Классика</h3>
+    <p>Протокол, объявляемый в случае массового нарушения условий контракта персоналом класса D.</p>
+    <ul>
+      <li>
+        <strong>Основания для активации:</strong>
+        <ul>
+          <li>Подтверждено, что один или несколько представителей D-Класса вооружены и проявляют агрессию к сотрудникам Фонда.</li>
+          <li>D-Класс сотрудничает с враждебными структурами, препятствует операциям Фонда или угрожает интересам организации.</li>
+          <li>D-Класс получил доступ к информации выше его уровня допуска (2+).</li>
+          <li>Зафиксировано массовое использование SCP-Объектов персоналом класса D.</li>
+          <li>Контроль над D-Классом утерян.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Последствия:</strong>
+        <ul>
+          <li>Все военизированные единицы комплекса получают полномочия на ликвидацию всего несвязанного персонала класса D и/или D-Класса без сопровождения сотрудников Фонда, без предупреждения.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <h3>7.3. Коды тревоги C.A.S.S.I.E.</h3>
   <p>Коды объявляются через C.A.S.S.I.E. и определяют режим работы всего комплекса.</p>
   <table>
@@ -926,7 +1077,7 @@
     <summary>Протокол «Демонтаж»</summary>
     <div class="content">
       <p><strong>Статус:</strong> 🟩 Работы окончена</p>
-      <p><strong>Текст:</strong> Запрос принят. Активирован протокол "Демонтаж". Сотрудникам МОГ разрешено ликвидировать персонал комплекса.</p>
+      <p><strong>Текст:</strong> Запрос принят. Активирован протокол "Демонтаж". Арест всех.</p>
     </div>
   </details>
 
@@ -942,7 +1093,7 @@
     <summary>Протокол «Лезвие»</summary>
     <div class="content">
       <p><strong>Статус:</strong> 🟩 Работы окончена</p>
-      <p><strong>Текст:</strong> Протокол “Лезвие” активирован. Весь ПЕРСОНАЛ на уничтожение.</p>
+      <p><strong>Текст:</strong> Протокол “Лезвие” активирован. Ликвидация.</p>
     </div>
   </details>
 
@@ -975,14 +1126,6 @@
     <div class="content">
       <p><strong>Статус:</strong> 🟩🟦 Работы окончена</p>
       <p><strong>Текст:</strong> Внимание всем оперативникам МОГ. По решению операторов Штаба-04, активируется протокол "Уборка" для ликвидации SCP-###. После ликвидации объекта, эвакуируйте MICRO-HID и продолжайте операцию.</p>
-    </div>
-  </details>
-
-  <details class="protocol-card">
-    <summary>Протокол «Последняя надежда»</summary>
-    <div class="content">
-      <p><strong>Статус:</strong> 🟨 Работы нет текста</p>
-      <p><strong>Текст:</strong> [ВНИМАНИЕ]: Персоналу всех Учреждений и Зон Фонда SCP. Встреча персонала O5 заканчивается. O5-1 ... O5-13 - приняли активацию протокола Последняя надежда. Активация протокола Последняя надежда инициирована в времени: 25 секунд. Спасибо за работу с Фондом SCP. Прощайте, персонал. Обезопасить. Удержать. Сохранить.</p>
     </div>
   </details>
 
@@ -1231,10 +1374,10 @@
 <footer>
   <p><strong>MV.PROJECT</strong> — Medium RP SCP:SL</p>
   <p>© 2026 MV.PROJECT. Все права защищены.</p>
-  <p>Версия правил 2.4</p>
+  <p>Версия правил 2.5</p>
 </footer>
 
-</div>
+</main>
 
 <script>
   // Поиск по правилам
