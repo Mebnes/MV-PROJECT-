@@ -168,27 +168,36 @@
 
   li { margin-bottom: 7px; }
 
+  /* ИСПРАВЛЕННЫЕ БЛОКИ ПРАВИЛ */
   .rule {
-    background: #1f1f1f;
-    border-left: 4px solid #ff2e2e;
-    padding: 14px 20px;
-    margin: 12px 0;
-    border-radius: 0 8px 8px 0;
-    color: #e8e8e8;
-    font-size: 0.95em;
-    line-height: 1.6;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    transition: 0.2s;
+    display: block;
+    width: 100%;
+    background: #202020;
+    border: 1px solid #2e2e2e;
+    border-left: 5px solid #ff2e2e;
+    padding: 16px 22px;
+    margin: 14px 0;
+    border-radius: 6px;
+    color: #f0f0f0;
+    font-size: 1em;
+    line-height: 1.7;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    box-sizing: border-box;
+    overflow: visible;
+    white-space: normal;
+    word-wrap: break-word;
+    min-height: auto;
   }
 
   .rule:hover {
-    background: #252525;
+    background: #262626;
     border-left-color: #ff5555;
   }
 
   .rule strong {
     color: #ff2e2e;
     font-weight: 700;
+    display: inline;
   }
 
   .warning {
@@ -230,6 +239,7 @@
 
   .ok strong { color: #3aff3a; }
 
+  /* ИСПРАВЛЕННЫЕ ТАБЛИЦЫ */
   table {
     width: 100%;
     border-collapse: collapse;
